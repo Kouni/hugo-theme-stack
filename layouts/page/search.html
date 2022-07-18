@@ -1,6 +1,6 @@
 {{ define "body-class" }}template-search{{ end }}
 {{ define "head" }}
-    {{- with .OutputFormats.Get "json" -}} 
+    {{- with .OutputFormats.Get "json" -}}
         <link rel="preload" href="{{ .Permalink }}" as="fetch" crossorigin="anonymous">
     {{- end -}}
 {{ end }}
@@ -26,7 +26,7 @@
 </script>
 
 {{- $opts := dict "minify" hugo.IsProduction "JSXFactory" "createElement" -}}
-{{- $searchScript := resources.Get "ts/search.tsx" | js.Build $opts -}}
+{{- $searchScript := resources.Get "ts/search.tsx" | js.Build $opts | minify -}}
 <script type="text/javascript" src="{{ $searchScript.RelPermalink }}" defer></script>
 
 {{ partialCached "footer/footer" . }}
