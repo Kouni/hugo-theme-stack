@@ -1,11 +1,15 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
-description: 
+description:
 date: {{ .Date }}
-image: 
-math: 
-license: 
+image:
+math:
+license:
 hidden: false
+categories:
+  - AWS
+tags:
+  - poc
 comments: true
 draft: true
 ---
